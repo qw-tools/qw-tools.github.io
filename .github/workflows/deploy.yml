@@ -26,7 +26,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     runs-on: ubuntu-latest
     steps:
@@ -42,6 +41,8 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Download repo data
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh api -H "Accept: application/vnd.github+json" /orgs/qw-tools/repos > src/repos.json
 
