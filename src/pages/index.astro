@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 
 import repos from "../repos.json";
 const projectRepos = repos.filter(r => r.name !== "qw-tools.github.io");
@@ -8,43 +10,21 @@ const projectRepos = repos.filter(r => r.name !== "qw-tools.github.io");
 ---
 
 <Layout title="QuakeWorld Tools">
-    <main>
-        <h1>QuakeWorld <span class="text-gradient">Tools</span></h1>
-        <ul role="list" class="link-card-grid">
-            {
-            projectRepos.map((r) => (
-            <Card title={r.name} body={r.description} href={r.homepage} />
-            ))
-            }
-        </ul>
-    </main>
+    <SiteHeader />
+
+    <div class="bg-gray-100 border-b border-gray-300 flex flex-col">
+        <h1 class="container my-4 font-bold text-3xl">QuakeWorld Tools</h1>
+
+        <div class="container fadeIn mb-4">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {
+                projectRepos.map((r) => (
+                <Card title={r.name} body={r.description} href={r.homepage} />
+                ))
+                }
+            </div>
+        </div>
+    </div>
+
+    <SiteFooter />
 </Layout>
-
-<style>
-    main {
-        margin: auto;
-        padding: 1.5rem;
-        max-width: 80ch;
-    }
-
-    h1 {
-        font-size: 3rem;
-        font-weight: 800;
-        margin: 0;
-    }
-
-    .text-gradient {
-        background-image: var(--accent-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 400%;
-        background-position: 0;
-    }
-
-    .link-card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-        gap: 1rem;
-        padding: 0;
-    }
-</style>
