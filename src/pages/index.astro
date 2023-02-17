@@ -6,6 +6,13 @@ import SiteHeader from '../components/SiteHeader.astro';
 
 import repos from "../repos.json";
 const projectRepos = repos.filter(r => r.name !== "qw-tools.github.io");
+const projectIcons = {
+    servers: "info",
+    "recent-demos": "play_circle_filled",
+    "hud-numbers": "pin",
+    "model-textures": "category",
+    "charset": "font_download",
+};
 
 ---
 
@@ -19,7 +26,7 @@ const projectRepos = repos.filter(r => r.name !== "qw-tools.github.io");
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {
                 projectRepos.map((r) => (
-                <Card title={r.name} body={r.description} href={r.homepage} />
+                <Card title={r.name} body={r.description} href={r.homepage} icon={projectIcons[r.name]} />
                 ))
                 }
             </div>
