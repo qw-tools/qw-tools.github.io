@@ -22,10 +22,10 @@ const projectIcons = {
     <SiteHeader />
 
     <div class="bg-gray-100 border-b border-gray-300 flex flex-col">
-        <h1 class="container my-4 font-bold text-3xl">QuakeWorld Tools</h1>
+        <h1 class="container mt-6 mb-4 font-bold text-3xl">QuakeWorld Tools</h1>
 
-        <div class="container fadeIn mb-4">
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div class="container fadeIn mb-8">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {
                 projectRepos.map((r) => (
                 <Card title={r.name} body={r.description} href={r.homepage} icon={projectIcons[r.name]} />

@@ -9,9 +9,9 @@ icon: string;
 const { href, title, body, icon } = Astro.props;
 ---
 
-<a href={href} class="block px-6 py-5 md:rounded-md bg-white border border-gray-300 shadow hover:bg-sky-50">
+<a href={href} class="block px-5 py-4 md:rounded-md bg-white border border-gray-300 shadow hover:bg-sky-50">
     <h2 class="text-lg font-bold mb-1 flex items-center space-x-1">
-        <img src={`/assets/img/icons/${icon}.svg`} alt="" width="32" height="32" />
+        <img src={`/assets/img/icons/${icon}.svg`} alt="" width="24" height="24" />
         <span>{title}</span>
         <span>&rarr;</span>
     </h2>
