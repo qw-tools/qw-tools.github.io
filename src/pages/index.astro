@@ -6,6 +6,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 
 import repos from "../repos.json";
 const projectRepos = repos.filter(r => r.name !== "qw-tools.github.io");
+projectRepos.sort((a,b) => a.name.localeCompare(b.name));
 const projectIcons = {
     servers: "info",
     "recent-demos": "play_circle_filled",
